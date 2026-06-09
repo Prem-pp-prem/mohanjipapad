@@ -60,13 +60,28 @@ const container = {
   visible: { transition: { staggerChildren: 0.15 } },
 };
 
-const cardVariant = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
+// const cardVariant = {
+//   hidden: { opacity: 0, y: 40, scale: 0.95 },
+//   visible: {
+//     opacity: 1,
+//     y: 0,
+//     scale: 1,
+//     transition: { duration: 0.6, ease: "easeOut" },
+//   },
+// };
+const cardVariant: any = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+    scale: 0.9,
+  },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: {
+      duration: 0.5,
+    },
   },
 };
 
@@ -122,7 +137,8 @@ export default function Benefits() {
             <motion.div
               key={benefit.id}
               id={benefit.id}
-              variants={cardVariant}
+              // variants={cardVariant}
+              variants={cardVariant as any}
               className="card-hover rounded-2xl p-6 text-center relative overflow-hidden"
               style={{
                 background: benefit.bgGradient,

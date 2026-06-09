@@ -128,7 +128,8 @@ export default function WhyUs() {
           {features.map((feature) => (
             <motion.div
               key={feature.title}
-              variants={cardVariant}
+              // variants={cardVariant}
+              variants={cardVariant as any}
               className="card-hover rounded-2xl p-6 cursor-default"
               style={{
                 background: feature.bg,
@@ -173,7 +174,7 @@ export default function WhyUs() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="mt-16 text-center"
         >
           <div
