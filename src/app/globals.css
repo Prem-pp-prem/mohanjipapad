@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #FFF8F0;
+  --cream-dark: #F5E6D3;
+  --golden: #D4A017;
+  --golden-light: #F0C040;
+  --golden-dark: #B8860B;
+  --dark-red: #8B1A1A;
+  --dark-red-light: #A52020;
+  --dark-green: #1A4A2E;
+  --green-light: #2D7A4F;
+  --brown: #6B3A2A;
+  --text-dark: #1C1008;
+  --text-medium: #4A3728;
+  --text-light: #8B7355;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-poppins), sans-serif;
+  background-color: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--golden-dark);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-red);
+}
+
+/* Utility classes */
+.font-playfair { font-family: var(--font-playfair), serif; }
+.font-poppins { font-family: var(--font-poppins), sans-serif; }
+.font-inter { font-family: var(--font-inter), sans-serif; }
+
+/* Gradient backgrounds */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, var(--dark-red) 0%, #6B1212 50%, #3D0A0A 100%);
+}
+
+.bg-golden-gradient {
+  background: linear-gradient(135deg, var(--golden-light) 0%, var(--golden) 50%, var(--golden-dark) 100%);
+}
+
+.bg-cream-gradient {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+}
+
+.bg-dark-gradient {
+  background: linear-gradient(135deg, #1C0808 0%, #2D0F0F 50%, #1A0808 100%);
+}
+
+/* Text gradients */
+.text-golden-gradient {
+  background: linear-gradient(135deg, var(--golden-light), var(--golden), var(--golden-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-red-gradient {
+  background: linear-gradient(135deg, var(--dark-red-light), var(--dark-red), #5C0F0F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(212, 160, 23, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(212, 160, 23, 0.8); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.9); opacity: 0; }
+  70% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 20s linear infinite; }
+.animate-bounce-in { animation: bounce-in 0.6s ease-out forwards; }
+.animate-slide-up { animation: slide-up 0.6s ease-out forwards; }
+.animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
+.animate-wave { animation: wave 2s ease-in-out infinite; }
+
+/* Shimmer button effect */
+.btn-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--golden-dark) 0%,
+    var(--golden-light) 25%,
+    var(--golden) 50%,
+    var(--golden-light) 75%,
+    var(--golden-dark) 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  transition: all 0.3s ease;
+}
+
+.btn-shimmer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 160, 23, 0.5);
+}
+
+/* WhatsApp button */
+.whatsapp-btn {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(139, 26, 26, 0.15);
+}
+
+/* Ornamental divider */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ornament::before,
+.ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--golden), transparent);
+}
+
+/* Section spacing */
+.section-padding {
+  padding: 80px 0;
+}
+
+/* Indian border pattern */
+.indian-border {
+  border: 2px solid var(--golden);
+  border-image: linear-gradient(45deg, var(--golden-dark), var(--golden-light), var(--golden-dark)) 1;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 248, 240, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+}
+
+/* Sticky nav shadow */
+.nav-shadow {
+  box-shadow: 0 2px 30px rgba(139, 26, 26, 0.15);
+}
+
+/* Star rating */
+.star-filled { color: var(--golden); }
+.star-empty { color: var(--cream-dark); }
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+}
